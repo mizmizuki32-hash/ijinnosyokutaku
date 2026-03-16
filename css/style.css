@@ -196,8 +196,8 @@ margin-top:20px;
 }
 
 .concept-people img{
-width:120px !important;
-height:120px !important;
+width:240px !important;
+height:240px !important;
 object-fit:cover;
 border-radius:50%;
 }
@@ -208,6 +208,13 @@ border-radius:50%;
 gap:20px;
 }
 
+	.concept-people img{
+width:120px !important;
+height:120px !important;
+object-fit:cover;
+border-radius:50%;
+}
+	
 .concept-title{
 font-size:20px;
 }
@@ -578,7 +585,7 @@ height:30px;
 }
 
 .follow-btn{
-font-size:10px;
+font-size:8px;
 padding:8px 14px;
 }
 
@@ -824,6 +831,10 @@ font-size:18px;
 
 .concept-text{
 font-size:14px;
+}
+	
+	.concept-text{
+line-height:1.8;
 }
 	
 }
