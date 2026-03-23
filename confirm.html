@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>予約確認</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="reserve-page">
+
+<header class="lp-header">
+<div class="lp-header-inner">
+<a href="index.html" onclick="history.back(); return false;" class="back-home">← 戻る</a>
+</div>
+</header>
+
+<section class="reserve">
+
+<h2>予約確認</h2>
+
+<p>以下の内容で予約しますか？</p>
+
+<div id="confirm-data"></div>
+
+<a href="thanks.html" class="reserve-btn">確定する</a>
+
+</section>
+
+<script>
+const data = JSON.parse(localStorage.getItem("reserveData"));
+
+let html = `
+<p>お名前：${data.name}</p>
+<p>人数：${data.people}</p>
+<p>日付：${data.date}</p>
+<p>時間：${data.time}</p>
+<p>コース：${data.course}</p>
+`;
+
+document.getElementById("confirm-data").innerHTML = html;
+</script>
+
+</body>
+</html>

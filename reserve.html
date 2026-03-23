@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>予約｜偉人の食卓</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="reserve-page">
+
+<header class="lp-header">
+<div class="lp-header-inner">
+
+<a href="index.html" onclick="history.back(); return false;" class="back-home">← 戻る</a>
+
+<h1 class="logo">
+<a href="index.html">
+<img src="images/logo.png">
+</a>
+</h1>
+
+</div>
+</header>
+<main>
+
+<section class="reserve">
+
+<h2>ご予約</h2>
+<p class="copy">特別な時間を、ぜひご体験ください。</p>
+
+<form class="reserve-form">
+
+<label>お名前</label>
+<input type="text" placeholder="山田 太郎" required>
+
+<label>人数</label>
+<select required>
+<option>1名</option>
+<option>2名</option>
+<option>3名</option>
+<option>4名</option>
+<option>5名以上</option>
+</select>
+
+<label>ご来店日</label>
+<input type="date" required>
+
+<label>ご来店時間</label>
+<input type="time" required>
+
+<label>コース選択</label>
+<select required>
+<option>席のみ予約</option>
+<option>タイタニックコース（予約限定）</option>
+</select>
+
+<label>ご要望</label>
+<textarea placeholder="アレルギーやご要望など"></textarea>
+
+<button type="submit">予約する</button>
+
+</form>
+
+<p class="note">
+※コースメニューは予約限定となっております。<br>
+※混雑状況によりご希望に添えない場合がございます。
+</p>
+
+</section>
+
+</main>
+	
+<script>
+document.querySelector(".reserve-form").addEventListener("submit", function(e){
+
+  const name = document.querySelector('input[type="text"]').value;
+  const date = document.querySelector('input[type="date"]').value;
+  const time = document.querySelector('input[type="time"]').value;
+
+  if(!name || !date || !time){
+    alert("必須項目を入力してください");
+    e.preventDefault();
+  }
+
+});
+</script>
+	
+	<script>
+document.querySelector(".reserve-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = {
+    name: document.querySelector('input[type="text"]').value,
+    people: document.querySelector('select').value,
+    date: document.querySelector('input[type="date"]').value,
+    time: document.querySelector('input[type="time"]').value,
+    course: document.querySelectorAll('select')[1].value
+  };
+
+  localStorage.setItem("reserveData", JSON.stringify(data));
+
+  location.href = "confirm.html";
+});
+</script>
+	
+</body>
+</html>
