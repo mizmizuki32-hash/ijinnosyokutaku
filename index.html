@@ -18,6 +18,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <body>
 
+	
+	
 <header class="header">
 
 <div class="header-inner">
@@ -152,11 +154,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </section>	
 	
 	
-	<section class="news">
+	<section id="news" class="news">
 
 <h2 class="news-title fade-up">NEWS</h2>
 
-<a href="open.html" id="news" class="news-item">
+<a href="open.html" class="news-item">
 
 <div class="news-img fade-up">
 <img src="images/naisou.png" alt="オープンのお知らせ">
@@ -247,8 +249,29 @@ Instagram
 const btn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".nav");
 
-btn.addEventListener("click", function(){
-nav.classList.toggle("active");
+// 開閉
+btn.addEventListener("click", function(e){
+  e.stopPropagation(); // これ重要
+  nav.classList.toggle("active");
+});
+
+// メニュー内クリックで閉じる
+nav.addEventListener("click", function(){
+  nav.classList.remove("active");
+});
+
+// メニュー外クリックで閉じる
+document.addEventListener("click", function(e){
+  if(!nav.contains(e.target) && !btn.contains(e.target)){
+    nav.classList.remove("active");
+  }
+});
+	
+	// ESCキーで閉じる（PC用）
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    nav.classList.remove("active");
+  }
 });
 
 </script>
@@ -271,6 +294,8 @@ el.classList.add("show");
 });
 
 });
+	
+	
 </script>	
 	
 	

@@ -52,8 +52,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <input type="date" required>
 
 <label>ご来店時間</label>
-<input type="time" required>
-
+<select id="time" required>
+  <option value="">選択してください</option>
+  <option>11:00</option>
+  <option>11:30</option>
+  <option>12:00</option>
+  <option>12:30</option>
+  <option>13:00</option>
+  <option>13:30</option>
+  <option>14:00</option>
+  <option>14:30</option>
+  <option>15:00</option>
+  <option>15:30</option>
+  <option>16:00</option>
+  <option>16:30</option>
+  <option>17:00</option>
+  <option>17:30</option>
+  <option>18:00</option>
+  <option>18:30</option>
+  <option>19:00</option>
+  <option>19:30</option>
+  <option>20:00</option>
+  <option>20:30</option>
+  <option>21:00</option>
+  <option>21:30</option>
+  <option>22:00</option>
+</select>
+	
+	<p class="time-note">
+※最終受付は22:00となります。<br>
+※混雑状況によりご希望に添えない場合がございます。
+</p>
+	
 <label>コース選択</label>
 <select required>
 <option>席のみ予約</option>
@@ -99,7 +129,7 @@ document.querySelector(".reserve-form").addEventListener("submit", function(e){
     name: document.querySelector('input[type="text"]').value,
     people: document.querySelector('select').value,
     date: document.querySelector('input[type="date"]').value,
-    time: document.querySelector('input[type="time"]').value,
+    time: document.getElementById("time").value,
     course: document.querySelectorAll('select')[1].value
   };
 
